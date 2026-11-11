@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.triton_cache_tests/
+recsa/cuda/.cubin_cache/
+third_party/data/
+suites/
+results/
+*.json.tmp

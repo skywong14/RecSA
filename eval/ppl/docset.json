@@ -1,0 +1,1257 @@
+{
+ "schema": "ppl_docset/v2",
+ "schema_note": "byte-level anchored 50-word rule (token OR byte hit excludes, main and test); MAIN = all eligible groups when fewer than n_main",
+ "rules": {
+  "seed": "ppl-pg19-20261010",
+  "n_main": 10,
+  "E_main": 1000000,
+  "E_2m": 2000000,
+  "char_prefilter": 2500000,
+  "reference_re": "dictionar|cyclop|encyclop|circle of knowledge|review digest|english biography|world of words|hobson-jobson|household manual|quotations",
+  "groups": {
+   "bible": "\\bbible\\b",
+   "shakespeare": "shakespeare",
+   "debates_of_congress": "debates of congress"
+  },
+  "ngram": 50,
+  "stride": 256,
+  "min_distinct": 16,
+  "test_first": 131072,
+  "test_min": 8192,
+  "byte_rule": {
+   "n_words": 50,
+   "anchor": "crc32(first word) % 8 == 0",
+   "hash": "blake2b digest_size 8 of ' '.join(words)",
+   "words": "str.split() of the raw book text / of tokenizer.decode(row input_ids)"
+  },
+  "report_only": {
+   "byte_n_words": 13,
+   "widely_quoted_rows13": 100
+  },
+  "exclusion": "identity OR token 50-gram OR byte 50-word (against every training row) OR a source-ledger exposure",
+  "order": "sha256(seed:url) ascending; group representative = first-ranked member"
+ },
+ "n_main": 9,
+ "n_main_requested": 10,
+ "main_shortfall": "only 9 eligible work groups; the MAIN set is all of them",
+ "tokenizer": {
+  "tokenizer_json_md5": "6423133b9cc1a2077b57822c30c211aa",
+  "add_special_tokens": false
+ },
+ "parquet_dir": "emozilla/pg19 @c021754c8e01c5b1cc83a1f549c1f97fbbb756b8 data/ (train split)",
+ "test_parquet": "test-00000-of-00001-29a571947c0b5ccc.parquet",
+ "test_parquet_sha256": "9aae5ddf035760257458cff08d2575d78a15f84eff867af7a87eff0681b01bfc",
+ "main": [
+  {
+   "file": "train-00010-of-00023-dd5d8583a9f6a549.parquet",
+   "row": 519,
+   "book_id": "pg19_00010_519",
+   "title": "Modern Machine-Shop Practice Volumes I and II by Joshua Rose",
+   "pub": 1887,
+   "url": "http://www.gutenberg.org/ebooks/39225",
+   "n_chars": 4756870,
+   "n_tokens": 1261044,
+   "text_sha256": "10fcac7cc2513d1d6c730bfaad65af10ccb81a2ae26164b261fa35fbcc310684",
+   "reference_work": false,
+   "group": "pg19_00010_519",
+   "rank_key": "0635cdea68709c187d6507a2160e3d062a8cd97b0534353c00cf5526c05bb7f9",
+   "eligible": true,
+   "widely_quoted": false
+  },
+  {
+   "file": "train-00005-of-00023-87dece6a0ab708e8.parquet",
+   "row": 311,
+   "book_id": "pg19_00005_311",
+   "title": "The Bible King James Version Complete by Various",
+   "pub": 1611,
+   "url": "http://www.gutenberg.org/ebooks/30",
+   "n_chars": 5084876,
+   "n_tokens": 1405554,
+   "text_sha256": "e0123205df748ccdf14ff76a09df0bba5a7eb7afe6c34ce45e4e90a403bb9969",
+   "reference_work": false,
+   "group": "bible",
+   "rank_key": "101ac8fa61f1176b4ccfa8f2f4c2ff239534dfe85840aeb0d04a3dc2d8bc0c42",
+   "eligible": true,
+   "widely_quoted": true
+  },
+  {
+   "file": "train-00016-of-00023-8269d10108995a28.parquet",
+   "row": 126,
+   "book_id": "pg19_00016_126",
+   "title": "History of the United Netherlands 1584-1609 Complete",
+   "pub": 1873,
+   "url": "http://www.gutenberg.org/ebooks/4885",
+   "n_chars": 4356609,
+   "n_tokens": 1003719,
+   "text_sha256": "bdefebee24876ef70d6b5fb64a040e49e7bf77e3816b8d37ff083e0a7ca58adf",
+   "reference_work": false,
+   "group": "pg19_00016_126",
+   "rank_key": "279622958274b7cc385056fe2cf117b1eb566afec42b79a1b07863b86d9a1d33",
+   "eligible": true,
+   "widely_quoted": false
+  },
+  {
+   "file": "train-00000-of-00023-5263dc4323e881d2.parquet",
+   "row": 537,
+   "book_id": "pg19_00000_537",
+   "title": "The Anatomy of Melancholy by Democritus Junior",
+   "pub": 1621,
+   "url": "http://www.gutenberg.org/ebooks/10800",
+   "n_chars": 3377013,
+   "n_tokens": 1000033,
+   "text_sha256": "43829f4c6f079880ae6055c0b4b1d4d0a237402fdc029f0665845a8815be3182",
+   "reference_work": false,
+   "group": "pg19_00000_537",
+   "rank_key": "2c412ca7b3256a3fc0a12aaf724c67d9af32f87ce349a30e5188eeaaaa27f738",
+   "eligible": true,
+   "widely_quoted": false
+  },
+  {
+   "file": "train-00005-of-00023-87dece6a0ab708e8.parquet",
+   "row": 217,
+   "book_id": "pg19_00005_217",
+   "title": "The Complete Memoires of Jacques Casanova de Seingalt",
+   "pub": 1894,
+   "url": "http://www.gutenberg.org/ebooks/2981",
+   "n_chars": 6690121,
+   "n_tokens": 1531970,
+   "text_sha256": "f18a82379508c5a4c7d2b029c2a0d8fa4e5cc7456f01248c5762827f8e2a9621",
+   "reference_work": false,
+   "group": "pg19_00005_217",
+   "rank_key": "4c308e8324c438a32882aeab2e73adddf8399c26ab1a86769b90cca23bd2274a",
+   "eligible": true,
+   "widely_quoted": false
+  },
+  {
+   "file": "train-00001-of-00023-2b13c68dbeba63b5.parquet",
+   "row": 960,
+   "book_id": "pg19_00001_960",
+   "title": "The History of England in Three Volumes Vol.II by Tobias Smollett",
+   "pub": 1688,
+   "url": "http://www.gutenberg.org/ebooks/19217",
+   "n_chars": 4867324,
+   "n_tokens": 1099801,
+   "text_sha256": "f475282d83a0a58dd149a00df6f99e0b297a1bca2d959d0cc2782e06ce59ed05",
+   "reference_work": false,
+   "group": "pg19_00001_960",
+   "rank_key": "4d6d70220ed4e896931389305e97e06dce97bc40e7542bbf760d7d9c3edd49cd",
+   "eligible": true,
+   "widely_quoted": false
+  },
+  {
+   "file": "train-00011-of-00023-6c0bc91e6df2e661.parquet",
+   "row": 256,
+   "book_id": "pg19_00011_256",
+   "title": "Abridgment of the Debates of Congress from 1789 to 1856",
+   "pub": 1857,
+   "url": "http://www.gutenberg.org/ebooks/40499",
+   "n_chars": 4705240,
+   "n_tokens": 1073145,
+   "text_sha256": "87667dcfc23beba10712ae1ab5a0d1a36ca501e387df09cfd9a5992f0b8bc6ba",
+   "reference_work": false,
+   "group": "debates_of_congress",
+   "rank_key": "5961acd1c4d8fbb1bbaf92f5cb14590e8f722f8a356090e7b45df543b658df97",
+   "eligible": true,
+   "widely_quoted": true
+  },
+  {
+   "file": "train-00017-of-00023-e240b232c0daddca.parquet",
+   "row": 225,
+   "book_id": "pg19_00017_225",
+   "title": "Complete Poetic and Dramatic Works of Robert Browning",
+   "pub": 1895,
+   "url": "http://www.gutenberg.org/ebooks/50954",
+   "n_chars": 5258602,
+   "n_tokens": 1348826,
+   "text_sha256": "9deb60a1f88a4adee2ffb52cf3b8938d32d3a5a18aeb139d6f52a3541bae78f8",
+   "reference_work": false,
+   "group": "pg19_00017_225",
+   "rank_key": "902a9dc382696c170e200444235f47ff2b00aab5212c45d436414c5f6304ec1b",
+   "eligible": true,
+   "widely_quoted": false
+  },
+  {
+   "file": "train-00017-of-00023-e240b232c0daddca.parquet",
+   "row": 515,
+   "book_id": "pg19_00017_515",
+   "title": "Church History Vols. 1-3 by J. H. Kurtz",
+   "pub": 1885,
+   "url": "http://www.gutenberg.org/ebooks/51491",
+   "n_chars": 4718476,
+   "n_tokens": 1279278,
+   "text_sha256": "3b3bbfc1c8e450e3dadf57818f07c3012c8833d14984f090bc531772aa538188",
+   "reference_work": false,
+   "group": "pg19_00017_515",
+   "rank_key": "c9c28b0c16ac1f6cfb831b6f218d9f41323eecd9a7ac0a639a3c09582efd8847",
+   "eligible": true,
+   "widely_quoted": false
+  }
+ ],
+ "two_m": [],
+ "test": {
+  "books": [
+   "test_10146",
+   "test_10321",
+   "test_10356",
+   "test_10762",
+   "test_15562",
+   "test_22424",
+   "test_24553",
+   "test_2544",
+   "test_25646",
+   "test_25773",
+   "test_25830",
+   "test_26183",
+   "test_26239",
+   "test_26493",
+   "test_26618",
+   "test_27454",
+   "test_28444",
+   "test_28988",
+   "test_29594",
+   "test_29973",
+   "test_30312",
+   "test_30752",
+   "test_30754",
+   "test_30909",
+   "test_30981",
+   "test_31065",
+   "test_3129",
+   "test_3247",
+   "test_32761",
+   "test_3340",
+   "test_33426",
+   "test_33756",
+   "test_34467",
+   "test_35205",
+   "test_35246",
+   "test_3608",
+   "test_36256",
+   "test_37006",
+   "test_37328",
+   "test_37403",
+   "test_3754",
+   "test_37702",
+   "test_38106",
+   "test_3890",
+   "test_38929",
+   "test_38955",
+   "test_4047",
+   "test_40579",
+   "test_40700",
+   "test_4128",
+   "test_41603",
+   "test_41607",
+   "test_42081",
+   "test_43536",
+   "test_43845",
+   "test_44557",
+   "test_45313",
+   "test_45881",
+   "test_45888",
+   "test_46915",
+   "test_47068",
+   "test_47558",
+   "test_47581",
+   "test_47676",
+   "test_48693",
+   "test_49078",
+   "test_49529",
+   "test_49596",
+   "test_50287",
+   "test_51410",
+   "test_53345",
+   "test_5396",
+   "test_54537",
+   "test_54624",
+   "test_55339",
+   "test_55871",
+   "test_56410",
+   "test_5734",
+   "test_5770",
+   "test_57791",
+   "test_58473",
+   "test_58553",
+   "test_58598",
+   "test_5956",
+   "test_5962",
+   "test_6412",
+   "test_7412",
+   "test_7987",
+   "test_8197",
+   "test_8559",
+   "test_860",
+   "test_9931"
+  ],
+  "lengths": [
+   8192,
+   16384,
+   32768,
+   65536,
+   131072
+  ],
+  "n_qualifying": {
+   "8192": 92,
+   "16384": 89,
+   "32768": 74,
+   "65536": 50,
+   "131072": 16
+  },
+  "n_test_books": 100,
+  "n_excluded_decontam": 3,
+  "n_too_short": 5,
+  "rows": [
+   {
+    "row": 0,
+    "book_id": "test_10146",
+    "title": "Reminiscences of Pioneer Days in St. Paul by Frank Moore",
+    "pub": 1908,
+    "url": "http://www.gutenberg.org/ebooks/10146",
+    "n_tokens": 57721,
+    "text_sha256": "5d3822a84681d2d9a243a4215e15346a84d0df49defe3e53539653ffd8707a9d"
+   },
+   {
+    "row": 1,
+    "book_id": "test_10321",
+    "title": "Dragon's blood by Henry Milner Rideout",
+    "pub": 1909,
+    "url": "http://www.gutenberg.org/ebooks/10321",
+    "n_tokens": 81680,
+    "text_sha256": "6a29171d3b00c85ac25d7fdce63d5ffbd9b4688e41922d4285a29ebe2fd09954"
+   },
+   {
+    "row": 2,
+    "book_id": "test_10356",
+    "title": "Travels in Morocco Volume 2 by James Richardson",
+    "pub": 1860,
+    "url": "http://www.gutenberg.org/ebooks/10356",
+    "n_tokens": 76786,
+    "text_sha256": "fcb8aa4bc4bdbbe3d74a2bfb584fc305d4c9f317cf46a1c0ca2296fea59eddbc"
+   },
+   {
+    "row": 3,
+    "book_id": "test_10762",
+    "title": "Impressions of Theophrastus Such by George Eliot",
+    "pub": 1879,
+    "url": "http://www.gutenberg.org/ebooks/10762",
+    "n_tokens": 77655,
+    "text_sha256": "8c26ef6d668e10dba38cee0d890b1a155369040456b1b6a0bf07c648c210a4f1"
+   },
+   {
+    "row": 4,
+    "book_id": "test_12204",
+    "title": "Odd Craft Part 4: Bill's Lapse by W.W. Jacobs",
+    "pub": 1909,
+    "url": "http://www.gutenberg.org/ebooks/12204",
+    "n_tokens": 6679,
+    "text_sha256": "40ba7b02ec24913fb70eff44e5dae8d5adbf12a437f1c0e7b4501c6df93d9045"
+   },
+   {
+    "row": 5,
+    "book_id": "test_15562",
+    "title": "The S. W. F. Club by Caroline E. Jacobs",
+    "pub": 1912,
+    "url": "http://www.gutenberg.org/ebooks/15562",
+    "n_tokens": 55756,
+    "text_sha256": "b5a2c518abe1957d1414bcb007dca962fc9e82f491201b31dd3918f10d1f28e2"
+   },
+   {
+    "row": 6,
+    "book_id": "test_22424",
+    "title": "Frank Merriwell Down South by Burt L. Standish",
+    "pub": 1903,
+    "url": "http://www.gutenberg.org/ebooks/22424",
+    "n_tokens": 109150,
+    "text_sha256": "67b2e4e1ddf1618816398fbcf6b529a56148e695aee0389a9a86b648954c0a95"
+   },
+   {
+    "row": 7,
+    "book_id": "test_24553",
+    "title": "Critical Miscellanies (Vol. 2 of 3) by John Morley",
+    "pub": 1905,
+    "url": "http://www.gutenberg.org/ebooks/24553",
+    "n_tokens": 29695,
+    "text_sha256": "a7fc762d864c2f3550f09e8b9a4d2b3d1a9dcb8b924a5b0ff276e65125c793d9"
+   },
+   {
+    "row": 8,
+    "book_id": "test_2544",
+    "title": "From Sand Hill to Pine by Bret Harte",
+    "pub": 1900,
+    "url": "http://www.gutenberg.org/ebooks/2544",
+    "n_tokens": 85132,
+    "text_sha256": "2748e2d00cfcbd7af9885decf554a4aacb3298014ec8f2804455349345bb7cd6"
+   },
+   {
+    "row": 9,
+    "book_id": "test_25646",
+    "title": "Child's Health Primer For Primary Classes by Jane Andrews",
+    "pub": 1885,
+    "url": "http://www.gutenberg.org/ebooks/25646",
+    "n_tokens": 24526,
+    "text_sha256": "0c1bf7f8943bf2d250040740744ded876fa7649054ee01ac0dc31ec7e4bf2d35"
+   },
+   {
+    "row": 10,
+    "book_id": "test_25773",
+    "title": "On the Portraits of English Authors on Gardening by Samuel Felton",
+    "pub": 1830,
+    "url": "http://www.gutenberg.org/ebooks/25773",
+    "n_tokens": 125129,
+    "text_sha256": "1cc3f3651d9a4c21b4178465226667735c0a314fc8a62a3253ab774cb473f499"
+   },
+   {
+    "row": 11,
+    "book_id": "test_25830",
+    "title": "Discourse of a Method for the Well Guiding of Reason by Rene Descartes",
+    "pub": 1649,
+    "url": "http://www.gutenberg.org/ebooks/25830",
+    "n_tokens": 29086,
+    "text_sha256": "f40ed3f814aaa5be0dd292253e51df4ff112c999e2eccb0f2edd4e67035a8122"
+   },
+   {
+    "row": 12,
+    "book_id": "test_26183",
+    "title": "Laurence Sterne in Germany by Harvey Waterman Thayer",
+    "pub": 1905,
+    "url": "http://www.gutenberg.org/ebooks/26183",
+    "n_tokens": 126844,
+    "text_sha256": "995aa6c5260748415e97989f7c62a60fa0d7df5ee005b213ce0b93c91b455635"
+   },
+   {
+    "row": 13,
+    "book_id": "test_26239",
+    "title": "The Forester's Daughter by Hamlin Garland",
+    "pub": 1914,
+    "url": "http://www.gutenberg.org/ebooks/26239",
+    "n_tokens": 86532,
+    "text_sha256": "418d01bc84a9432032604dec1efa12ced6c035661fb8c24b780ee6e0f604e8a0"
+   },
+   {
+    "row": 14,
+    "book_id": "test_26493",
+    "title": "The Life of Gordon Volume II by Demetrius Charles Boulger",
+    "pub": 1896,
+    "url": "http://www.gutenberg.org/ebooks/26493",
+    "n_tokens": 136936,
+    "text_sha256": "ee44901b96edbfb5731f45e73d8a0e20f5703662f37e7cb056010ade63c14f90"
+   },
+   {
+    "row": 15,
+    "book_id": "test_26618",
+    "title": "Minnie's Pet Monkey by Madeline Leslie",
+    "pub": 1864,
+    "url": "http://www.gutenberg.org/ebooks/26618",
+    "n_tokens": 13840,
+    "text_sha256": "989e16d30958d582e32ec05becbbb72fae93d41cc102a68fe87ce0670febfdfa"
+   },
+   {
+    "row": 16,
+    "book_id": "test_27454",
+    "title": "In Her Own Right by John Reed Scott",
+    "pub": 1911,
+    "url": "http://www.gutenberg.org/ebooks/27454",
+    "n_tokens": 100280,
+    "text_sha256": "a34195170af4a35bde45ed246079ff540531a812c826a589d3c4f8ee6b940053"
+   },
+   {
+    "row": 17,
+    "book_id": "test_28444",
+    "title": "Turn About Eleanor by Ethel M. Kelley",
+    "pub": 1917,
+    "url": "http://www.gutenberg.org/ebooks/28444",
+    "n_tokens": 80176,
+    "text_sha256": "59edf9d77ea06446ce0f7239ad0530615a18323f80d5ec990f1c40ce5c85ca52"
+   },
+   {
+    "row": 18,
+    "book_id": "test_28988",
+    "title": "Jennie Gerhardt by Theodore Dreiser",
+    "pub": 1911,
+    "url": "http://www.gutenberg.org/ebooks/28988",
+    "n_tokens": 173457,
+    "text_sha256": "8efc3c261f1df059c79cb6ce041cc2c84288de652ad8d6d2914c8e598a1da624"
+   },
+   {
+    "row": 19,
+    "book_id": "test_29594",
+    "title": "Red White Blue Socks Part Second by Sarah L. Barrow",
+    "pub": 1863,
+    "url": "http://www.gutenberg.org/ebooks/29594",
+    "n_tokens": 21042,
+    "text_sha256": "943a7d92e88a31d7713ac1e330e6c46b0a83c1ee5ab87f77079d9222d0cbed04"
+   },
+   {
+    "row": 20,
+    "book_id": "test_29973",
+    "title": "The 'Patriotes' of '37 by Alfred D. Decelles",
+    "pub": 1915,
+    "url": "http://www.gutenberg.org/ebooks/29973",
+    "n_tokens": 41585,
+    "text_sha256": "cc307466f6840e9b3300ca34b7bd64c7150e489802c1619194be08109753717e"
+   },
+   {
+    "row": 21,
+    "book_id": "test_30312",
+    "title": "Carmen Ariza by Charles Francis Stocking",
+    "pub": 1916,
+    "url": "http://www.gutenberg.org/ebooks/30312",
+    "n_tokens": 596861,
+    "text_sha256": "3096d54291b6afabab5a72e5eff167508410fcee824fda45085d0060beb785e2"
+   },
+   {
+    "row": 22,
+    "book_id": "test_30752",
+    "title": "Vestiges of the Mayas by Augustus Le Plongeon",
+    "pub": 1881,
+    "url": "http://www.gutenberg.org/ebooks/30752",
+    "n_tokens": 41450,
+    "text_sha256": "b876334e1a8b7d2f3d3e8083be365fdc8cc0807e4a70ce0cfa4bd54698ecb7e2"
+   },
+   {
+    "row": 23,
+    "book_id": "test_30754",
+    "title": "The Stones of Venice Volume I (of 3) by John Ruskin",
+    "pub": 1851,
+    "url": "http://www.gutenberg.org/ebooks/30754",
+    "n_tokens": 216983,
+    "text_sha256": "96b4a09053a9a4df29ca58c42d398553276bbf5820607e7ade88271a2d547077"
+   },
+   {
+    "row": 24,
+    "book_id": "test_30909",
+    "title": "The Church: Her Books and Her Sacraments by E. E. Holmes",
+    "pub": 1914,
+    "url": "http://www.gutenberg.org/ebooks/30909",
+    "n_tokens": 48659,
+    "text_sha256": "9a7e8aaa078503ef358b7a29a948a1bc3de04baa0d6ab644a316e72ff9c189d7"
+   },
+   {
+    "row": 25,
+    "book_id": "test_30981",
+    "title": "The Real Latin Quarter by F. Berkeley Smith",
+    "pub": 1901,
+    "url": "http://www.gutenberg.org/ebooks/30981",
+    "n_tokens": 37565,
+    "text_sha256": "3dea5e2b39edf0d72304addf2e5b89ddc39edbc60dc6311b9be14a2bbbbb8841"
+   },
+   {
+    "row": 26,
+    "book_id": "test_31065",
+    "title": "Try Again by Oliver Optic",
+    "pub": 1911,
+    "url": "http://www.gutenberg.org/ebooks/31065",
+    "n_tokens": 65466,
+    "text_sha256": "144f28414797f605df61eef346291f9b8b99e9d6709f721a68d86d63ef43ef87"
+   },
+   {
+    "row": 27,
+    "book_id": "test_3129",
+    "title": "The Story of Pocahantas by Charles Dudley Warner",
+    "pub": 1849,
+    "url": "http://www.gutenberg.org/ebooks/3129",
+    "n_tokens": 20047,
+    "text_sha256": "6fc909e06cf2b18b32e7ee843e43ba38c72bb77b7b398bfcb2bff8e3f2db3811"
+   },
+   {
+    "row": 28,
+    "book_id": "test_31974",
+    "title": "Last Days of the Rebellion by Alanson M. Randol",
+    "pub": 1886,
+    "url": "http://www.gutenberg.org/ebooks/31974",
+    "n_tokens": 3532,
+    "text_sha256": "5daa38b1b55ce73948a526fc833c8d455f6c31cc55c0de89def71c3f1fc32eeb"
+   },
+   {
+    "row": 29,
+    "book_id": "test_3247",
+    "title": "The Patrol of the Sun Dance Trail by Ralph Connor",
+    "pub": 1914,
+    "url": "http://www.gutenberg.org/ebooks/3247",
+    "n_tokens": 127607,
+    "text_sha256": "6a89641bb1451ba92869b52197bc3f2851d56362c181ee72c43703bc6cf04b24"
+   },
+   {
+    "row": 30,
+    "book_id": "test_32761",
+    "title": "Caxton's Book: A Collection of Essays Poems Tales and",
+    "pub": 1876,
+    "url": "http://www.gutenberg.org/ebooks/32761",
+    "n_tokens": 118143,
+    "text_sha256": "f95d6274fa547948d745dbf0fa5628388f64493abad495970ee57d539d6fea89"
+   },
+   {
+    "row": 31,
+    "book_id": "test_3340",
+    "title": "The Wandering Jew Book 2 by Eugene Sue",
+    "pub": 1844,
+    "url": "http://www.gutenberg.org/ebooks/3340",
+    "n_tokens": 94565,
+    "text_sha256": "a959fe71559a5df38c12ad10628fd9d6b06cc6ad6e43eae330bcca94be6723f5"
+   },
+   {
+    "row": 32,
+    "book_id": "test_33426",
+    "title": "Reminiscences of the Great Mutiny 1857-59 by William Forbes-Mitchell",
+    "pub": 1910,
+    "url": "http://www.gutenberg.org/ebooks/33426",
+    "n_tokens": 112599,
+    "text_sha256": "ab55839a5d4d7fa33f6ae4d8e8b7e12caab237f9e7f0598b37f0d50dca5dc445"
+   },
+   {
+    "row": 33,
+    "book_id": "test_33756",
+    "title": "Village Life in America 1852-1872 by Caroline Cowles Richards",
+    "pub": 1913,
+    "url": "http://www.gutenberg.org/ebooks/33756",
+    "n_tokens": 78893,
+    "text_sha256": "54fbb1f91be211d3bd02242de8456a5bd45ddaf6849dff25d8b60881ccd28b5e"
+   },
+   {
+    "row": 34,
+    "book_id": "test_34467",
+    "title": "In Camp With A Tin Soldier by John Kendrick Bangs",
+    "pub": 1892,
+    "url": "http://www.gutenberg.org/ebooks/34467",
+    "n_tokens": 51313,
+    "text_sha256": "97170ba3aad91e6a39790eae63244fedd52f58dde790a0ac1ea008f595aa13e1"
+   },
+   {
+    "row": 35,
+    "book_id": "test_35205",
+    "title": "Who? by Elizabeth Kent",
+    "pub": 1912,
+    "url": "http://www.gutenberg.org/ebooks/35205",
+    "n_tokens": 86583,
+    "text_sha256": "749e7b2bb35b060405d08be2613e9b87e8addeab47799896ca9c554ca006a9e6"
+   },
+   {
+    "row": 36,
+    "book_id": "test_35246",
+    "title": "Arne; A Sketch of Norwegian Country Life by Bj?tjerne Bj?on",
+    "pub": 1869,
+    "url": "http://www.gutenberg.org/ebooks/35246",
+    "n_tokens": 56364,
+    "text_sha256": "2badb570adea91979ae6cd8931b20acfad73c7b6890729cbeed27bb9f7ec7073"
+   },
+   {
+    "row": 37,
+    "book_id": "test_3608",
+    "title": "The Ragged Trousered Philanthropists by Robert Tressell",
+    "pub": 1914,
+    "url": "http://www.gutenberg.org/ebooks/3608",
+    "n_tokens": 339441,
+    "text_sha256": "51978ae38dd137023fb6bf13b6400dcf2bf02ab5556a23e811eeb61cb720e4ba"
+   },
+   {
+    "row": 38,
+    "book_id": "test_36256",
+    "title": "The Inflexible Captive by Hannah More",
+    "pub": 1830,
+    "url": "http://www.gutenberg.org/ebooks/36256",
+    "n_tokens": 24602,
+    "text_sha256": "9c96d5cff1b6699d4657ca9f68ef882e191db0a366310083b3f9f626d20e4f78"
+   },
+   {
+    "row": 39,
+    "book_id": "test_37006",
+    "title": "Fire Cloud by Samuel Fletcher",
+    "pub": 1909,
+    "url": "http://www.gutenberg.org/ebooks/37006",
+    "n_tokens": 35780,
+    "text_sha256": "97f23441477b08486ec0adb6d6be5b0e112fddf6f610cc311283ca4be02e61ae"
+   },
+   {
+    "row": 40,
+    "book_id": "test_37328",
+    "title": "Medical Life in the Navy by Gordon Stables",
+    "pub": 1868,
+    "url": "http://www.gutenberg.org/ebooks/37328",
+    "n_tokens": 36620,
+    "text_sha256": "3a1315129f7559307e11e264ab0cac58413db4e5dfb80bf0d222ee3d5f51ba0b"
+   },
+   {
+    "row": 41,
+    "book_id": "test_37403",
+    "title": "Notes and Queries Number 85 June 14 1851 by Various",
+    "pub": 1851,
+    "url": "http://www.gutenberg.org/ebooks/37403",
+    "n_tokens": 29041,
+    "text_sha256": "fadc2a29acab219354162bb2565fc9812e8d62fc2a2590072845b097bf5d5b05"
+   },
+   {
+    "row": 42,
+    "book_id": "test_37443",
+    "title": "The Fascinating Boston by Alfonso Josephs Sheafe",
+    "pub": 1913,
+    "url": "http://www.gutenberg.org/ebooks/37443",
+    "n_tokens": 5524,
+    "text_sha256": "b4a58cd1e9cf47390887d5dbed7115dd0db205c10c135262caa58ffe79f100c9"
+   },
+   {
+    "row": 43,
+    "book_id": "test_3754",
+    "title": "The Wonders Of Instinct by J. H. Fabre",
+    "pub": 1918,
+    "url": "http://www.gutenberg.org/ebooks/3754",
+    "n_tokens": 120344,
+    "text_sha256": "b36a8ad66238edc05a1ea6ae27de504fce2f2b83ff3c6efe87fd495d4392998d"
+   },
+   {
+    "row": 44,
+    "book_id": "test_37702",
+    "title": "The Life Of Thomas Paine Vol. II. (of II) by Moncure Daniel Conway",
+    "pub": 1793,
+    "url": "http://www.gutenberg.org/ebooks/37702",
+    "n_tokens": 207984,
+    "text_sha256": "ef4098601368685ffc0c4a198a3213a279d140f04263aa8e34ad05430d092b23"
+   },
+   {
+    "row": 45,
+    "book_id": "test_38106",
+    "title": "Ingersollia by Robert G. Ingersoll",
+    "pub": 1882,
+    "url": "http://www.gutenberg.org/ebooks/38106",
+    "n_tokens": 91385,
+    "text_sha256": "166513b34111f1641de391e04295ab88bf892607fc69b2d9d5a7740d29a2c858"
+   },
+   {
+    "row": 46,
+    "book_id": "test_3890",
+    "title": "Memoirs of Marie Antoinette Queen Of France Vol. 7",
+    "pub": 1900,
+    "url": "http://www.gutenberg.org/ebooks/3890",
+    "n_tokens": 39117,
+    "text_sha256": "f503255fdbd78f927cedb3912e26d27a2d8589fa78787537c1707b7c7a6f7b50"
+   },
+   {
+    "row": 47,
+    "book_id": "test_38929",
+    "title": "Quacks and Grafters by Unknown",
+    "pub": 1908,
+    "url": "http://www.gutenberg.org/ebooks/38929",
+    "n_tokens": 38722,
+    "text_sha256": "dcdcebb797d168d55b632c8b74fdd9e8fa4086de3cce0b488fb3889342090e4d"
+   },
+   {
+    "row": 48,
+    "book_id": "test_38955",
+    "title": "Prairie Farmer Vol. 56: No. 12 March 22 1884 by Various",
+    "pub": 1884,
+    "url": "http://www.gutenberg.org/ebooks/38955",
+    "n_tokens": 69757,
+    "text_sha256": "77749d381daa942a7ccc56304f8d19fa03dd930e2fa81c3bbe8ee25321b66190"
+   },
+   {
+    "row": 49,
+    "book_id": "test_4047",
+    "title": "The Leavenworth Case by Anna Katharine Green",
+    "pub": 1878,
+    "url": "http://www.gutenberg.org/ebooks/4047",
+    "n_tokens": 148984,
+    "text_sha256": "2f22199045a05c62731ecb92eab417e54bd92d1b0d7d0d0c68ed27e4c8bd7467"
+   },
+   {
+    "row": 50,
+    "book_id": "test_40579",
+    "title": "Memoir of Hendrick Zwaardecroon commandeur of Jaffnapatam",
+    "pub": 1911,
+    "url": "http://www.gutenberg.org/ebooks/40579",
+    "n_tokens": 86011,
+    "text_sha256": "9de79b2d3e7f1815bd3c35102aba1bb5eb092c8502a02937f2f4bf91ef391b5f"
+   },
+   {
+    "row": 51,
+    "book_id": "test_40700",
+    "title": "Dandy Dick by Arthur Pinero",
+    "pub": 1893,
+    "url": "http://www.gutenberg.org/ebooks/40700",
+    "n_tokens": 40674,
+    "text_sha256": "e12b51e01b1502f5987fd00fdc26da1f215ea9a2f17ebfabc9b53eb5103120a3"
+   },
+   {
+    "row": 52,
+    "book_id": "test_4128",
+    "title": "The Diary of Samuel Pepys June July & August 1661",
+    "pub": 1661,
+    "url": "http://www.gutenberg.org/ebooks/4128",
+    "n_tokens": 24970,
+    "text_sha256": "071f6bfe432dbe2c0fc2167e11b0a50e6f3240299e2c29eb32eeb472b7368b39"
+   },
+   {
+    "row": 53,
+    "book_id": "test_41603",
+    "title": "Toto's Merry Winter by Laura E. Richards",
+    "pub": 1887,
+    "url": "http://www.gutenberg.org/ebooks/41603",
+    "n_tokens": 70548,
+    "text_sha256": "71dac97b754dd80f238aeb15b27834ae305ce963ac1e4a5e654f6e282c887ab7"
+   },
+   {
+    "row": 54,
+    "book_id": "test_41607",
+    "title": "Oom Paul's People by Howard C. Hillegas",
+    "pub": 1899,
+    "url": "http://www.gutenberg.org/ebooks/41607",
+    "n_tokens": 75229,
+    "text_sha256": "aa86743734c119f82c7fb2926fdc927830043d7aa9f6e7a317ab3e1f19b963c8"
+   },
+   {
+    "row": 55,
+    "book_id": "test_42081",
+    "title": "The Diary of John Evelyn Volume II (of 2) by John Evelyn",
+    "pub": 1901,
+    "url": "http://www.gutenberg.org/ebooks/42081",
+    "n_tokens": 211594,
+    "text_sha256": "54ad637c07ea3c64261c63d704425f1405c073fe0de125a5a7e3d02e37edb29e"
+   },
+   {
+    "row": 56,
+    "book_id": "test_42655",
+    "title": "The Civil War Through the Camera by Henry William Elson",
+    "pub": 1912,
+    "url": "http://www.gutenberg.org/ebooks/42655",
+    "n_tokens": 205510,
+    "text_sha256": "0c8ab2823dd746ce01095d16ae3469400fc6b1d79f107d72e188c1b278eceed6"
+   },
+   {
+    "row": 57,
+    "book_id": "test_43536",
+    "title": "None so Deaf as Those Who Won't Hear by Herbert Pelham Curtis",
+    "pub": 1880,
+    "url": "http://www.gutenberg.org/ebooks/43536",
+    "n_tokens": 16576,
+    "text_sha256": "b1ebd0860a39a287ac4db4b18756ae8fd9b9dac4e073629bf1f5b2fb5243ea88"
+   },
+   {
+    "row": 58,
+    "book_id": "test_43845",
+    "title": "Punch or the London Charivari Vol.107 September 1 1894 by Various",
+    "pub": 1894,
+    "url": "http://www.gutenberg.org/ebooks/43845",
+    "n_tokens": 14963,
+    "text_sha256": "74f52c484aebe052693139bc8f322e5d4d77e6ceac85a5d86ca85802154bb0ce"
+   },
+   {
+    "row": 59,
+    "book_id": "test_44099",
+    "title": "How to Solve Conundrums by Anonymous",
+    "pub": 1900,
+    "url": "http://www.gutenberg.org/ebooks/44099",
+    "n_tokens": 35737,
+    "text_sha256": "e4fd505364a8f9fe8a71f0e0d66ab2fec058eb35637cd0f7e0918ff96a7a41bf"
+   },
+   {
+    "row": 60,
+    "book_id": "test_44557",
+    "title": "An Unsentimental Journey through Cornwall by Dinah Maria Craik",
+    "pub": 1884,
+    "url": "http://www.gutenberg.org/ebooks/44557",
+    "n_tokens": 58779,
+    "text_sha256": "13fe8d686576e72f7558b78efaf0e13402506084d87d06f25f92137081374eed"
+   },
+   {
+    "row": 61,
+    "book_id": "test_45313",
+    "title": "A System of Practical Medicine By American Authors Vol. II by Various",
+    "pub": 1885,
+    "url": "http://www.gutenberg.org/ebooks/45313",
+    "n_tokens": 1153002,
+    "text_sha256": "61f19bfac18c1279439f9a576bb837363c69202829a2d8ef019fd30f2ecec0ca"
+   },
+   {
+    "row": 62,
+    "book_id": "test_45881",
+    "title": "Secret Inheritance Volume 2 of 3 by Benjamin Leopold Farjeon",
+    "pub": 1887,
+    "url": "http://www.gutenberg.org/ebooks/45881",
+    "n_tokens": 51297,
+    "text_sha256": "1cbcc31ddcbf5b1f7b8d1f0ee3b084b9d10e2eddaef384bc168a9e272649906e"
+   },
+   {
+    "row": 63,
+    "book_id": "test_45888",
+    "title": "Scott's Lady of the Lake by Walter Scott",
+    "pub": 1910,
+    "url": "http://www.gutenberg.org/ebooks/45888",
+    "n_tokens": 72259,
+    "text_sha256": "4e8570ce455c19ff09398b247144cf3fe1cc80f15d30a83919c0522aec572e1b"
+   },
+   {
+    "row": 64,
+    "book_id": "test_46915",
+    "title": "A Treatise on Painting by Leonardo Da Vinci",
+    "pub": 1802,
+    "url": "http://www.gutenberg.org/ebooks/46915",
+    "n_tokens": 105602,
+    "text_sha256": "0bd55f37f200603153fb3098a34301672cd4af28f511bec0761f6fd30bef7df3"
+   },
+   {
+    "row": 65,
+    "book_id": "test_47068",
+    "title": "The Growth of the English Constitution by Edward A. Freeman",
+    "pub": 1873,
+    "url": "http://www.gutenberg.org/ebooks/47068",
+    "n_tokens": 85377,
+    "text_sha256": "d36a780edc3461ca2e0c9fa8b956448bfc523b33eb2342500a0f604ab1003645"
+   },
+   {
+    "row": 66,
+    "book_id": "test_47558",
+    "title": "Pen Pictures by B. F. Craig",
+    "pub": 1880,
+    "url": "http://www.gutenberg.org/ebooks/47558",
+    "n_tokens": 34663,
+    "text_sha256": "fe5ec71d8d248716c37218057ef3ba983a6b6a28d03f7320ec06aefe688b50d8"
+   },
+   {
+    "row": 67,
+    "book_id": "test_47581",
+    "title": "Birds and all Nature Vol. IV No. 3 September 1898 by Various",
+    "pub": 1898,
+    "url": "http://www.gutenberg.org/ebooks/47581",
+    "n_tokens": 17186,
+    "text_sha256": "e2a292338d7660fc831fee098b12ac0f352cd8d7e6a3c75b66c2c4cfa60081f5"
+   },
+   {
+    "row": 68,
+    "book_id": "test_47676",
+    "title": "The Amores or Amours by Ovid",
+    "pub": 1885,
+    "url": "http://www.gutenberg.org/ebooks/47676",
+    "n_tokens": 85436,
+    "text_sha256": "13dc76a4225315a2091a6b25a55d69af5d9fcc37ec4e5fb641b08e53b10dabff"
+   },
+   {
+    "row": 69,
+    "book_id": "test_48693",
+    "title": "Notes on Railroad Accidents by Charles Francis Adams",
+    "pub": 1879,
+    "url": "http://www.gutenberg.org/ebooks/48693",
+    "n_tokens": 93044,
+    "text_sha256": "4ff91b8047751591160d2086baa2f7a402db2be3fa632d889b0e55d811132c1e"
+   },
+   {
+    "row": 70,
+    "book_id": "test_49078",
+    "title": "The Shire Horse in Peace and War by J. Albert Frost",
+    "pub": 1915,
+    "url": "http://www.gutenberg.org/ebooks/49078",
+    "n_tokens": 37699,
+    "text_sha256": "14b964abccafd530df3f2c1d65b2a449c2809c754f189aea137ab8ee51091f3e"
+   },
+   {
+    "row": 71,
+    "book_id": "test_49529",
+    "title": "General Nelson's Scout by Byron A. Dunn",
+    "pub": 1898,
+    "url": "http://www.gutenberg.org/ebooks/49529",
+    "n_tokens": 97581,
+    "text_sha256": "977d1a739382e0d55e95c59405ff62c1ed386e0041c2e75f75e858a5c44b11d0"
+   },
+   {
+    "row": 72,
+    "book_id": "test_49596",
+    "title": "The Sorrows of Belgium by Leonid Andreyev",
+    "pub": 1915,
+    "url": "http://www.gutenberg.org/ebooks/49596",
+    "n_tokens": 25415,
+    "text_sha256": "cd88b15b8dd2e1f14daa7c5418419e2b1091cf3b9d1dda7bc1ac8f1d922937bb"
+   },
+   {
+    "row": 73,
+    "book_id": "test_50287",
+    "title": "The Flying Machine Boys in the Wilds by Frank Walton",
+    "pub": 1913,
+    "url": "http://www.gutenberg.org/ebooks/50287",
+    "n_tokens": 67355,
+    "text_sha256": "94ce46dca7870a939d0e4147581113ecea9d5ff5b1d49d7d84e6879b9b946fdf"
+   },
+   {
+    "row": 74,
+    "book_id": "test_51410",
+    "title": "Dr. Elsie Inglis by Lady Frances Balfour",
+    "pub": 1918,
+    "url": "http://www.gutenberg.org/ebooks/51410",
+    "n_tokens": 81369,
+    "text_sha256": "8e8986c6cbbe7774fe85028d0d5a0ca181e5f9bff37723523c4c9a6185c44abd"
+   },
+   {
+    "row": 75,
+    "book_id": "test_53345",
+    "title": "Dan The Newsboy by Horatio Alger Jr.",
+    "pub": 1893,
+    "url": "http://www.gutenberg.org/ebooks/53345",
+    "n_tokens": 84358,
+    "text_sha256": "de33a6aa94b007b63ba4a60dc9573e6e637d7adc6b9fa51128f3a3de6180dadc"
+   },
+   {
+    "row": 76,
+    "book_id": "test_5396",
+    "title": "The Crisis Complete by Winston Churchill",
+    "pub": 1901,
+    "url": "http://www.gutenberg.org/ebooks/5396",
+    "n_tokens": 231728,
+    "text_sha256": "76430f8f313927b76eccaa07ba58e653fade86004add7394576b586146fe08a6"
+   },
+   {
+    "row": 77,
+    "book_id": "test_54537",
+    "title": "Musical Instruments by Carl Engel",
+    "pub": 1875,
+    "url": "http://www.gutenberg.org/ebooks/54537",
+    "n_tokens": 46627,
+    "text_sha256": "5cfdce9b68bd2fb4ecee1240f28140c582426f51ab591fc416e556480c6630e3"
+   },
+   {
+    "row": 78,
+    "book_id": "test_54624",
+    "title": "The Irish Penny Journal Vol. 1 No. 28 January 9 1841 by Various",
+    "pub": 1641,
+    "url": "http://www.gutenberg.org/ebooks/54624",
+    "n_tokens": 16312,
+    "text_sha256": "c8ec2ea2f7b9f7da3911a2064086aa7746df9e5a53a4091e5c0589eefd0815ee"
+   },
+   {
+    "row": 79,
+    "book_id": "test_55339",
+    "title": "The Lawton Girl by Harold Frederic",
+    "pub": 1890,
+    "url": "http://www.gutenberg.org/ebooks/55339",
+    "n_tokens": 154022,
+    "text_sha256": "101b3ce72407e1480549fa221a2b38dccc01d35ac1afde5f7fa1565dca12011f"
+   },
+   {
+    "row": 80,
+    "book_id": "test_55871",
+    "title": "A History of Architecture in all Countries Volume 1 3rd ed.",
+    "pub": 1893,
+    "url": "http://www.gutenberg.org/ebooks/55871",
+    "n_tokens": 338619,
+    "text_sha256": "25f8f094d9c6a9c71e154c4818e32409c3996f4b0c87d68b542d5ff98ba41c8a"
+   },
+   {
+    "row": 81,
+    "book_id": "test_56410",
+    "title": "Ruby by Molly E. Jamieson",
+    "pub": 1898,
+    "url": "http://www.gutenberg.org/ebooks/56410",
+    "n_tokens": 26750,
+    "text_sha256": "d1f8f9c63fa4d56e4741c28cafa3170ef366dad09bb4a8df715a962091c43b28"
+   },
+   {
+    "row": 82,
+    "book_id": "test_5734",
+    "title": "Life in the Grey Nunnery at Montreal by Sarah J Richardson",
+    "pub": 1858,
+    "url": "http://www.gutenberg.org/ebooks/5734",
+    "n_tokens": 138887,
+    "text_sha256": "d223c59804c154ab7568c5e9db6b1ddb2b4bd9f9c09572583aeb73c6b7745cc3"
+   },
+   {
+    "row": 83,
+    "book_id": "test_5770",
+    "title": "The Rover Boys in the Jungle by Arthur M. Winfield",
+    "pub": 1899,
+    "url": "http://www.gutenberg.org/ebooks/5770",
+    "n_tokens": 60738,
+    "text_sha256": "dff6cf2f9322b84e756050e80ffef5e4eeb51043638e5ae24ea9e9f38fd5e822"
+   },
+   {
+    "row": 84,
+    "book_id": "test_57791",
+    "title": "The Details of the Rocket System by William Congreve",
+    "pub": 1814,
+    "url": "http://www.gutenberg.org/ebooks/57791",
+    "n_tokens": 24635,
+    "text_sha256": "6da9e4a4f1c587b8be9cb322e0be1936bf274ae7b2ae2cda75ccb530ca023260"
+   },
+   {
+    "row": 85,
+    "book_id": "test_58473",
+    "title": "The Good Hope by Herman Heijermans Jr.",
+    "pub": 1912,
+    "url": "http://www.gutenberg.org/ebooks/58473",
+    "n_tokens": 40965,
+    "text_sha256": "55a8ea9040e37d13b9b0601997ca657821fc6d367d69d639e0776235d1400091"
+   },
+   {
+    "row": 86,
+    "book_id": "test_58553",
+    "title": "An Astronomer's Wife by Angelo Hall",
+    "pub": 1908,
+    "url": "http://www.gutenberg.org/ebooks/58553",
+    "n_tokens": 47686,
+    "text_sha256": "0d04327aaf026ca5d7e71c37928259bbb6919617224c02db09843475e526366b"
+   },
+   {
+    "row": 87,
+    "book_id": "test_58598",
+    "title": "Another Brownie Book by Palmer Cox",
+    "pub": 1890,
+    "url": "http://www.gutenberg.org/ebooks/58598",
+    "n_tokens": 25018,
+    "text_sha256": "05946220fa8b98b19ca614d6736e4152f3e98dbe4bde249ba3c007889b14dbb5"
+   },
+   {
+    "row": 88,
+    "book_id": "test_5956",
+    "title": "Gallegher and Other Stories by Richard Harding Davis",
+    "pub": 1891,
+    "url": "http://www.gutenberg.org/ebooks/5956",
+    "n_tokens": 62954,
+    "text_sha256": "0e7d6c7d5005001aff5f102e4f75e45180122bbc913e9c7eaa93e4db5274949b"
+   },
+   {
+    "row": 89,
+    "book_id": "test_5962",
+    "title": "Oh Money! Money! by Eleanor Hodgman Porter",
+    "pub": 1918,
+    "url": "http://www.gutenberg.org/ebooks/5962",
+    "n_tokens": 117108,
+    "text_sha256": "400862a271eae91b19bdc5eb959b4ba38d79262090ee8953ed8ac45e8a305a42"
+   },
+   {
+    "row": 90,
+    "book_id": "test_6412",
+    "title": "Nature's Serial Story by E. P. Roe",
+    "pub": 1884,
+    "url": "http://www.gutenberg.org/ebooks/6412",
+    "n_tokens": 205809,
+    "text_sha256": "fd137e16db8203c936f5a0846e965fd21ae697217e8888e227edabb9cb34a19a"
+   },
+   {
+    "row": 91,
+    "book_id": "test_6941",
+    "title": "Old Mortality Complete by Sir Walter Scott",
+    "pub": 1816,
+    "url": "http://www.gutenberg.org/ebooks/6941",
+    "n_tokens": 256591,
+    "text_sha256": "0518b3d3c92d6bdc71d47bac817743bbf7bf56f4760929ee0e9da64e6417bfa6"
+   },
+   {
+    "row": 92,
+    "book_id": "test_7412",
+    "title": "Coningsby by Benjamin Disraeli",
+    "pub": 1844,
+    "url": "http://www.gutenberg.org/ebooks/7412",
+    "n_tokens": 220200,
+    "text_sha256": "a51c950fa12b46c034029afb43103b7926cb2e411fdc1b8b2f3f7b39cbaa1d70"
+   },
+   {
+    "row": 93,
+    "book_id": "test_7987",
+    "title": "The Fair Maid of Perth by Sir Walter Scott",
+    "pub": 1828,
+    "url": "http://www.gutenberg.org/ebooks/7987",
+    "n_tokens": 250390,
+    "text_sha256": "cee7d1120667e02595743213b42f79f98c907e879caa8d71ca4aa33234710288"
+   },
+   {
+    "row": 94,
+    "book_id": "test_8197",
+    "title": "India's Love Lyrics by Laurence Hope",
+    "pub": 1902,
+    "url": "http://www.gutenberg.org/ebooks/8197",
+    "n_tokens": 32532,
+    "text_sha256": "3bfe6edf82dcd8e2f20afb153a28ccbe33813ca9a4e29ec031f5e71c866c9a2e"
+   },
+   {
+    "row": 95,
+    "book_id": "test_8559",
+    "title": "Scientific American Supplement No. 360 November 25 1882 by Various",
+    "pub": 1882,
+    "url": "http://www.gutenberg.org/ebooks/8559",
+    "n_tokens": 56874,
+    "text_sha256": "e634b116a106a9db1eac26ddd87fc50125b657f89cfba7660ae2d045418a4356"
+   },
+   {
+    "row": 96,
+    "book_id": "test_860",
+    "title": "Baby Mine by Margaret Mayo",
+    "pub": 1910,
+    "url": "http://www.gutenberg.org/ebooks/860",
+    "n_tokens": 67044,
+    "text_sha256": "5bad8cb2c36c14d74d3004da7e6ed7aa2faa506979ca8771e342722ccb81c1ec"
+   },
+   {
+    "row": 97,
+    "book_id": "test_8788",
+    "title": "The Vision of Hell Part 10 by Dante Alighieri",
+    "pub": 1892,
+    "url": "http://www.gutenberg.org/ebooks/8788",
+    "n_tokens": 5207,
+    "text_sha256": "b0794dd12ad18b268548c77c1e3c6ff522a1fe42df50874096044fb242595681"
+   },
+   {
+    "row": 98,
+    "book_id": "test_9315",
+    "title": "A Doctor of the Old School Part 1 by Ian Maclaren",
+    "pub": 1895,
+    "url": "http://www.gutenberg.org/ebooks/9315",
+    "n_tokens": 6012,
+    "text_sha256": "83361f8f07c1e80d1984af891345832b74440b17dcc501062c0a6bf15bb17b14"
+   },
+   {
+    "row": 99,
+    "book_id": "test_9931",
+    "title": "K by Mary Roberts Rinehart",
+    "pub": 1915,
+    "url": "http://www.gutenberg.org/ebooks/9931",
+    "n_tokens": 126086,
+    "text_sha256": "0774929117f56d35200dd9323942cd1f0919f7017871ed60d396373be48b108c"
+   }
+  ]
+ },
+ "group_rank": [
+  {
+   "rank": 0,
+   "group": "pg19_00010_519",
+   "representative": "pg19_00010_519"
+  },
+  {
+   "rank": 1,
+   "group": "bible",
+   "representative": "pg19_00005_311"
+  },
+  {
+   "rank": 2,
+   "group": "pg19_00016_126",
+   "representative": "pg19_00016_126"
+  },
+  {
+   "rank": 3,
+   "group": "pg19_00000_537",
+   "representative": "pg19_00000_537"
+  },
+  {
+   "rank": 4,
+   "group": "pg19_00005_217",
+   "representative": "pg19_00005_217"
+  },
+  {
+   "rank": 5,
+   "group": "pg19_00001_960",
+   "representative": "pg19_00001_960"
+  },
+  {
+   "rank": 6,
+   "group": "debates_of_congress",
+   "representative": "pg19_00011_256"
+  },
+  {
+   "rank": 7,
+   "group": "pg19_00017_225",
+   "representative": "pg19_00017_225"
+  },
+  {
+   "rank": 8,
+   "group": "pg19_00017_515",
+   "representative": "pg19_00017_515"
+  }
+ ],
+ "n_pool": 28602,
+ "n_prefilter": 131,
+ "n_candidates_1m": 37,
+ "n_eligible": 14
+}

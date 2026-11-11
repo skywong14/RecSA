@@ -1,0 +1,7 @@
+{
+  "schema": 1,
+  "compression_rate": 16,
+  "top_k": 256,
+  "max_top_nodes": 4096,
+  "source": "Qwen/Qwen3-4B (revision 1cfa9a72) with the RecSA geometry: compression rate 16, top-k 256, 4,096 top nodes"
+}
