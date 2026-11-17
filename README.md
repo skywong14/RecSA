@@ -41,25 +41,6 @@ The kernels target H100/H200 (sm_90) with Triton 3.
     export MODEL_DIR=/path/to/qwen3_4b
     bash scripts/run_tests.sh
 
-## Evaluation
-
-Model weights will be released soon. With a RecSA model directory `RECSA_EXPORT` (weights, `recsa_graft.json`,
-`probe.pt`):
-
-    bash third_party/fetch.sh ruler
-    bash eval/ruler/gen_suites.sh $PWD/suites/ruler 131072
-    python scripts/ruler_eval.py --model $RECSA_EXPORT --probe-ckpt $RECSA_EXPORT/probe.pt --extra-eos 151645 151643 \
-      --suite 131072=suites/ruler/chat/shards/s131072_000.jsonl --out results/ruler/recsa/L131072/s000
-    python eval/ruler/ruler_score.py results/ruler/*/L* --json ruler_scores.json
-
-Add `--offload-leaves` at 1M and 2M to keep the leaves in host memory. `scripts/ruler_eval_dense.py` runs the
-dense model on the same suites.
-
-Latency (run `bash third_party/fetch.sh pg19` first for the prefill inputs):
-
-    python benchmarks/bench_decode_latency.py --export $RECSA_EXPORT --lengths 131072,524288 --arms default --out decode.json
-    python benchmarks/prefill_bench.py --model $RECSA_EXPORT --lengths 131072,524288 --out prefill.json
-
 ## Citation
 
     @article{wang2026recsa,
