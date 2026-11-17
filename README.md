@@ -13,8 +13,9 @@ Initialized from Qwen3-4B and trained on 0.62B tokens at 32K, RecSA extrapolates
 | RULER (13 tasks) | 32K | 131K | 262K | 524K | 1M | 2M |
 |---|---|---|---|---|---|---|
 | Dense + DCA | 94.6 | 78.5 | 68.4 | 58.0 | 40.0 | 27.6 |
+| DSA + DCA | **95.2** | 77.5 | 65.7 | 55.2 | 36.8 | 22.6 |
 | InfiniteHiP | 79.6 | 63.7 | 57.7 | 49.4 | 36.6 | 34.0 |
-| **RecSA** | **94.7** | **83.3** | **75.9** | **69.7** | **60.5** | **49.3** |
+| **RecSA** | 94.7 | **83.3** | **75.9** | **69.7** | **60.5** | **49.3** |
 
 At 524K on one H200, RecSA is 3.2x faster than dense attention in prefill and 3.8x faster in decoding.
 
